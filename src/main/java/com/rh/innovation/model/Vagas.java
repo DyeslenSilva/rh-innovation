@@ -44,7 +44,7 @@ public class Vagas {
 	
 	private boolean ativada;
 	private boolean desativada;
-	
+		
 	
 	public Object isDesativada() {
 		// TODO Auto-generated method stub

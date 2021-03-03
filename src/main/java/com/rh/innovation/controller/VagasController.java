@@ -6,6 +6,7 @@ import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ import com.rh.innovation.service.VagasService;
 
 @RestController
 @RequestMapping("/vagasApi")
+@CrossOrigin(origins = "http://localhost:4200")
 public class VagasController {
 
 	@Autowired
@@ -61,7 +63,7 @@ public class VagasController {
 		}
 	}
 	
-	@RequestMapping("/removeCliente")
+	@RequestMapping("/removeVaga")
 	public ResponseEntity<Object> removeVaga(@RequestBody Integer[] lista){
 		vagasService.removeVaga(lista);
 		return ResponseEntity.ok().build();	

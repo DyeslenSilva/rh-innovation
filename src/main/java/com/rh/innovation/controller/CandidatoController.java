@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,6 +23,7 @@ import com.rh.innovation.service.ServicoService;
 
 @RestController
 @RequestMapping("/candidatoAPI")
+@CrossOrigin(origins = "http://localhost:4200")
 public class CandidatoController {
 
 	@Autowired
@@ -81,5 +83,11 @@ public class CandidatoController {
 		}else {
 				return ResponseEntity.unprocessableEntity().build();
 			}
-		}	
+		}
+	
+	@RequestMapping("/deleteCandidato")
+	public ResponseEntity<Object> deleteCandidato(int[]list){
+		candidatoService.removeCandidato(list);
+		return ResponseEntity.ok().build();
+	}
 	}
